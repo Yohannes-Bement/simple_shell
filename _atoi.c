@@ -12,15 +12,15 @@ int interactive(info_t *info)
 }
 
 /**
- * is_john - checks if character is a delimeter
- * @john: the char to check
- * @dog: the delimeter string
+ * is_delim - checks if character is a delimeter
+ * @c: the char to check
+ * @delim: the delimeter string
  * Return: 1 if true, 0 if false
  */
-int is_john(char john, char *dog)
+int is_delim(char c, char *delim)
 {
-	while (*dog)
-		if (*dog++ == john)
+	while (*delim)
+		if (*delim++ == c)
 			return (1);
 	return (0);
 }
@@ -40,26 +40,26 @@ int _isalpha(int c)
 }
 
 /**
- * _yohanes - converts a string to an integer
- * @john: the string to be converted
+ * _atoi - converts a string to an integer
+ * @s: the string to be converted
  * Return: 0 if no numbers in string, converted number otherwise
  */
 
-int _yohanes(char *john)
+int _atoi(char *s)
 {
 	int icon, signjo = 1, flagjo = 0, outputjo;
 	unsigned int resultjo = 0;
 
-	for (icon = 0; john[icon] != '\0' && flagjo != 2; icon++)
+	for (icon = 0; s[icon] != '\0' && flagjo != 2; icon++)
 	{
-		if (john[icon] == '-')
+		if (s[icon] == '-')
 			signjo *= -1;
 
-		if (john[icon] >= '0' && john[icon] <= '9')
+		if (s[icon] >= '0' && s[icon] <= '9')
 		{
 			flagjo = 1;
 			resultjo *= 10;
-			resultjo += (john[icon] - '0');
+			resultjo += (s[icon] - '0');
 		}
 		else if (flagjo == 1)
 			flagjo = 2;
